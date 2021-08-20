@@ -68,7 +68,7 @@ namespace BulkyBook.Areas.Admin.Controllers
         {
             if (ModelState.IsValid)
             {
-                string webRootPath = _hostEnvironment.WebRootPath; //To get the root path of our product image i the wwwroot folder
+                string webRootPath = _hostEnvironment.WebRootPath; //To get the root path of our product image in the wwwroot folder
                 var files = HttpContext.Request.Form.Files;  //To get all the files in our product images
                 if (files.Count > 0)
                 {

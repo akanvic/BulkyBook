@@ -130,23 +130,6 @@ namespace BulkyBook.Areas.Identity.Pages.Account
                 {
                     _logger.LogInformation("User created a new account with password.");
 
-                    if(!await _roleManager.RoleExistsAsync(SD.Role_Admin))//Checks if the role has been created otherwise it does create it
-                    {
-                        await _roleManager.CreateAsync(new IdentityRole(SD.Role_Admin));
-                    }
-                    if (!await _roleManager.RoleExistsAsync(SD.Role_Employee))//Checks if the role has been created otherwise it does create it
-                    {
-                        await _roleManager.CreateAsync(new IdentityRole(SD.Role_Employee));
-                    }
-                    if (!await _roleManager.RoleExistsAsync(SD.Role_User_Comp))//Checks if the role has been created otherwise it does create it
-                    {
-                        await _roleManager.CreateAsync(new IdentityRole(SD.Role_User_Comp));
-                    }
-                    if (!await _roleManager.RoleExistsAsync(SD.Role_User_Indi))//Checks if the role has been created otherwise it does create it
-                    {
-                        await _roleManager.CreateAsync(new IdentityRole(SD.Role_User_Indi));
-                    }
-
                     if(user.Role == null)//if this is null that means the role was not selected
                     {
                         await _userManager.AddToRoleAsync(user, SD.Role_User_Indi); //Whenever a new user logs in he doesnt see the option of role so the role will be null hence the if statement
